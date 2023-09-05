@@ -6,7 +6,13 @@ namespace Owl\Component\Core\Factory;
 
 use Owl\Component\Core\Context\AdminUserContextInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
+use Owl\Component\Core\Model\EquipmentInterface;
 
+/**
+ * @template T of EquipmentInterface
+ *
+ * @implements EquipmentFactoryInterface<T>
+ */
 final class EquipmentFactory implements EquipmentFactoryInterface
 {
     public function __construct(
@@ -15,7 +21,7 @@ final class EquipmentFactory implements EquipmentFactoryInterface
     ) {
     }
 
-    public function createNew()
+    public function createNew(): EquipmentInterface
     {
         $equipment =  $this->defaultFactory->createNew();
 

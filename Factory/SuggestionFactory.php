@@ -8,6 +8,11 @@ use Owl\Component\Core\Model\AdminUserInterface;
 use Owl\Component\Core\Model\SuggestionInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
+/**
+ * @template T of SuggestionInterface
+ *
+ * @implements SuggestionFactoryInterface<T>
+ */
 final class SuggestionFactory implements SuggestionFactoryInterface
 {
     private FactoryInterface $defaultFactory;

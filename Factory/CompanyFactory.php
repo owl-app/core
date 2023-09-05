@@ -8,6 +8,11 @@ use Owl\Component\Core\Model\AdminUserInterface;
 use Owl\Component\Core\Model\CompanyInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
+/**
+ * @template T of CompanyInterface
+ *
+ * @implements CompanyFactoryInterface<T>
+ */
 final class CompanyFactory implements CompanyFactoryInterface
 {
     private FactoryInterface $defaultFactory;
