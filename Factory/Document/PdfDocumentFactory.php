@@ -18,6 +18,9 @@ class PdfDocumentFactory implements DocumentFactoryInterface
         $this->templatingEngine = $templatingEngine;
     }
 
+    /**
+     * @return PdfDocument
+     */
     public function createDocument(DocumentParamsInterface $params = null): DocumentInterface
     {
         return new PdfDocument(new Mpdf($params->getOptionsGenerator()), $this->templatingEngine, $params);

@@ -59,6 +59,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->localeCode = 'pl';
     }
 
+    /**
+     * @return string
+     */
     public function getName(): ?string
     {
         return $this->firstName.' '.$this->lastName;
@@ -74,6 +77,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->displayName = $displayName;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -84,6 +90,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->firstName = $firstName;
     }
 
+    /**
+     * @return string
+     */
     public function getLastName(): ?string
     {
         return $this->lastName;
@@ -94,6 +103,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->lastName = $lastName;
     }
 
+    /**
+     * @return string
+     */
     public function getPhone(): ?string
     {
         return $this->phone;
@@ -104,6 +116,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->phone = $phone;
     }
 
+    /**
+     * @return string
+     */
     public function getNote(): ?string
     {
         return $this->note;
@@ -114,6 +129,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->note = $note;
     }
 
+    /**
+     * @return string
+     */
     public function getLocaleCode(): ?string
     {
         return $this->localeCode;
@@ -134,6 +152,9 @@ class AdminUser extends User implements AdminUserInterface
         return $this->permissions;
     }
 
+    /**
+     * @return BaseRoleInterface
+     */
     public function getRole(): ?BaseRoleInterface
     {
         return $this->role;
@@ -144,6 +165,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->role = $role;
     }
 
+    /**
+     * @return BaseCompanyInterface
+     */
     public function getCompany(): ?BaseCompanyInterface
     {
         return $this->company;
@@ -154,6 +178,9 @@ class AdminUser extends User implements AdminUserInterface
         $this->company = $company;
     }
 
+    /**
+     * @psalm-return Collection<array-key, NotificationAcceptedInterface>
+     */
     public function getAcceptedNotifications(): Collection
     {
         return $this->acceptedNotifications;

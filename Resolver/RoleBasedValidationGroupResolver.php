@@ -23,6 +23,11 @@ final class RoleBasedValidationGroupResolver implements RoleBasedValidationGroup
         $this->adminUserContext = $adminUserContext;
     }
 
+    /**
+     * @return string[]
+     *
+     * @psalm-return list{0: 'owl', 1?: 'owl.role.admin_company'|'owl.role.admin_system'}
+     */
     public function __invoke(FormInterface $form): array
     {
         $validationGroups = ['owl'];

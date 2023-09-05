@@ -32,6 +32,11 @@ final class CompanyOwnerCondition implements OwnerConditionInterface
         return $expressionBuilder->equals('company', $this->adminUserContext->getAccessCompany());
     }
 
+    /**
+     * @return array
+     *
+     * @psalm-return array{company: mixed}
+     */
     public function getCriteria()
     {
         return ['company' => $this->adminUserContext->getAccessCompany()->getId()];

@@ -13,7 +13,7 @@ class Company extends BaseCompany implements CompanyInterface
      */
     protected $owner;
 
-    public function getOwner()
+    public function getOwner(): object|null
     {
         return $this->owner;
     }

@@ -26,7 +26,7 @@ final class OwnerCompanyVoter extends Voter
         return false;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
     {
         if($subject->getCompany()->getId() === $this->adminUserContext->getAccessCompany()->getId())
             return VoterInterface::ACCESS_GRANTED;

@@ -11,7 +11,7 @@ abstract class AbstractDocumentParams implements DocumentParamsInterface
 {
     final public function __construct() { }
 
-    public static function createFromRequestConfiguration(RequestConfiguration $configuration): self
+    public static function createFromRequestConfiguration(RequestConfiguration $configuration): static
     {
         $vars = $configuration->getVars();
 

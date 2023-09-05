@@ -47,11 +47,14 @@ class Suggestion extends BaseSuggestion implements SuggestionInterface
         $this->files = new ArrayCollection();
     }
 
-    public function getName(): string
+    public function getName():? string
     {
         return $this->title;
     }
 
+    /**
+     * @return AdminUserInterface|null
+     */
     public function getUser(): ?BaseUserInterface
     {
         return $this->user;
@@ -62,6 +65,9 @@ class Suggestion extends BaseSuggestion implements SuggestionInterface
         $this->user = $user;
     }
 
+    /**
+     * @return CompanyInterface|null
+     */
     public function getCompany(): ?BaseCompanyInterface
     {
         return $this->company;

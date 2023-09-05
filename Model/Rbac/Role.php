@@ -13,11 +13,19 @@ class Role extends BaseRole implements RoleInterface
      */
     protected $setting;
 
+    /**
+     * @return string
+     *
+     * @psalm-return 'role'
+     */
     public function getType(): string
     {
         return 'role';
     }
 
+    /**
+     * @return RoleSettingInterface
+     */
     public function getSetting(): ?RoleSettingInterface
     {
         return $this->setting;

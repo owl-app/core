@@ -58,6 +58,9 @@ class Notification extends BaseNotification implements NotificationInterface
         $this->files->removeElement($file);
     }
 
+    /**
+     * @return BaseUserInterface
+     */
     public function getUser(): ?BaseUserInterface
     {
         return $this->user;
@@ -78,6 +81,9 @@ class Notification extends BaseNotification implements NotificationInterface
         $this->assignedGroup = $assignedGroup;
     }
 
+    /**
+     * @psalm-return Collection<array-key, NotificationAcceptedInterface>
+     */
     public function getAcceptedNotifications(): Collection
     {
         return $this->acceptedNotifications;

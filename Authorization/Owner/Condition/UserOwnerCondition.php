@@ -32,6 +32,11 @@ final class UserOwnerCondition implements OwnerConditionInterface
         return $expressionBuilder->equals('user', $this->adminUserContext->getUser());
     }
 
+    /**
+     * @return array
+     *
+     * @psalm-return array{user: mixed}
+     */
     public function getCriteria()
     {
         return ['user' => $this->adminUserContext->getUser()->getId()];

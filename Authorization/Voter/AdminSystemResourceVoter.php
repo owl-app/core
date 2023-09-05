@@ -26,7 +26,7 @@ final class AdminSystemResourceVoter extends Voter
         return false;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
     {
         return VoterInterface::ACCESS_GRANTED;
     }

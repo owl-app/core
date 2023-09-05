@@ -14,6 +14,9 @@ class EquipmentAttribute extends BaseEquipmentAttribute implements EquipmentAttr
      */
     protected $category;
 
+    /**
+     * @return EquipmentCategoryInterface|null
+     */
     public function getCategory(): ?BaseCategoryInterface
     {
         return $this->category;

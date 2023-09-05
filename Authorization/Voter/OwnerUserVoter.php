@@ -26,7 +26,7 @@ final class OwnerUserVoter extends Voter
         return false;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
     {
         if($subject->getUser()->getId() === $this->adminUserContext->getUser()->getId())
             return VoterInterface::ACCESS_GRANTED;

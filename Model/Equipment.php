@@ -53,6 +53,9 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         $this->refuelings = new ArrayCollection();
     }
 
+    /**
+     * @return string
+     */
     public function getFullname(): string
     {
         return $this->name.' - '.$this->symbol;
@@ -73,6 +76,9 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         $this->files->removeElement($file);
     }
 
+    /**
+     * @return BaseUserInterface
+     */
     public function getUser(): ?BaseUserInterface
     {
         return $this->user;
@@ -83,6 +89,9 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         $this->user = $user;
     }
 
+    /**
+     * @return BaseCompanyInterface
+     */
     public function getCompany(): ?BaseCompanyInterface
     {
         return $this->company;
@@ -93,6 +102,9 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         $this->company = $company;
     }
 
+    /**
+     * @return EquipmentCategoryInterface|null
+     */
     public function getCategory(): ?BaseCategoryInterface
     {
         return $this->category;
@@ -103,7 +115,12 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         $this->category = $category;
     }
 
-    public function getEvents(): Collection
+    /**
+     * @return Collection|EquipmentEventInterface[]
+     *
+     * @psalm-return Collection|array<EquipmentEventInterface>
+     */
+    public function getEvents(): array|Collection
     {
         return $this->events;
     }
@@ -137,12 +154,20 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         }
     }
 
+    /**
+     * @return false
+     */
     public function hasEvent(EquipmentEventInterface $event): bool
     {
         return $this->events->contains($event);
     }
 
-    public function getRefuelings(): Collection
+    /**
+     * @return Collection|EquipmentRefuelingInterface[]
+     *
+     * @psalm-return Collection|array<EquipmentRefuelingInterface>
+     */
+    public function getRefuelings(): array|Collection
     {
         return $this->refuelings;
     }
@@ -176,6 +201,9 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         }
     }
 
+    /**
+     * @return false
+     */
     public function hasRefueling(EquipmentRefuelingInterface $refueling): bool
     {
         return $this->refuelings->contains($refueling);

@@ -34,6 +34,9 @@ class NotificationAccepted implements NotificationAcceptedInterface
         return $this->id;
     }
 
+    /**
+     * @return AdminUserInterface|null
+     */
     public function getUser(): ?BaseUserInterface
     {
         return $this->user;
@@ -44,6 +47,9 @@ class NotificationAccepted implements NotificationAcceptedInterface
         $this->user = $user;
     }
 
+    /**
+     * @return NotificationInterface
+     */
     public function getNotification(): ?BaseNotificationInterface
     {
         return $this->notification;

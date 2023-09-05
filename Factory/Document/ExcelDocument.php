@@ -22,6 +22,9 @@ class ExcelDocument implements DocumentInterface
         private DocumentParamsInterface $params
     ) {}
 
+    /**
+     * @return StreamedResponse
+     */
     public function generateResponse(string $filename, array $data = [])
     {
         $content = $this->builder->build($this->excelGenerator, $this->translator, $data);
@@ -40,7 +43,7 @@ class ExcelDocument implements DocumentInterface
         return $response;
     }
 
-    private function setHeaders(StreamedResponse $response, $filename): void
+    private function setHeaders(StreamedResponse $response, string $filename): void
     {
         $response->headers->set('Content-Type', 'application/vnd.ms-excel');
         $response->headers->set('Content-Disposition', 'attachment;filename="'.$filename.'"');

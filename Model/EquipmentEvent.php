@@ -45,6 +45,9 @@ class EquipmentEvent implements EquipmentEventInterface
         return $this->id;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -55,6 +58,9 @@ class EquipmentEvent implements EquipmentEventInterface
         $this->date = $date;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getDateNotify(): ?\DateTimeInterface
     {
         return $this->dateNotify;
@@ -85,6 +91,9 @@ class EquipmentEvent implements EquipmentEventInterface
         $this->notifyState = $notifyState;
     }
 
+    /**
+     * @return BaseEquipmentnterface
+     */
     public function getEquipment(): ?BaseEquipmentnterface
     {
         return $this->equipment;
@@ -95,6 +104,9 @@ class EquipmentEvent implements EquipmentEventInterface
         $this->equipment = $equipment;
     }
 
+    /**
+     * @return AdminUserInterface|null
+     */
     public function getUser(): ?BaseUserInterface
     {
         return $this->user;

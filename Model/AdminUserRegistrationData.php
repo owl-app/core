@@ -63,6 +63,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         return $this->id;
     }
 
+    /**
+     * @return BaseUserInterface
+     */
     public function getUser(): ?BaseUserInterface
     {
         return $this->user;
@@ -78,6 +81,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         return null !== $this->user;
     }
 
+    /**
+     * @return string
+     */
     public function getCompany(): ?string
     {
         return $this->company;
@@ -88,6 +94,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->company = $company;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -98,6 +107,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->firstName = $firstName;
     }
 
+    /**
+     * @return string
+     */
     public function getLastName(): ?string
     {
         return $this->lastName;
@@ -108,6 +120,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->lastName = $lastName;
     }
 
+    /**
+     * @return string
+     */
     public function getPhone(): ?string
     {
         return $this->phone;
@@ -118,6 +133,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->phone = $phone;
     }
 
+    /**
+     * @return string
+     */
     public function getEmail(): ?string
     {
         return $this->email;
@@ -128,6 +146,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->email = $email;
     }
 
+    /**
+     * @return string
+     */
     public function getCity(): ?string
     {
         return $this->city;
@@ -138,6 +159,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->city = $city;
     }
 
+    /**
+     * @return string
+     */
     public function getStreet(): ?string
     {
         return $this->street;
@@ -148,6 +172,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->street = $street;
     }
 
+    /**
+     * @return string
+     */
     public function getPostCode(): ?string
     {
         return $this->postCode;
@@ -158,6 +185,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->postCode = $postCode;
     }
 
+    /**
+     * @return string
+     */
     public function getNip(): ?string
     {
         return $this->nip;
@@ -168,6 +198,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->nip = $nip;
     }
 
+    /**
+     * @return string
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -188,6 +221,9 @@ class AdminUserRegistrationData implements AdminUserRegistrationDataInterface
         $this->changeStatusAt = $changeStatusAt;
     }
 
+    /**
+     * @return string
+     */
     public function getReasonRejection(): ?string
     {
         return $this->reasonRejection;

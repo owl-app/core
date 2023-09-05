@@ -21,6 +21,9 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
         $this->container = $container;
     }
 
+    /**
+     * @return ExcelDocument
+     */
     public function createDocument(DocumentParamsInterface $params = null): DocumentInterface
     {
         if (!$params->getBuilder()) {
@@ -36,6 +39,9 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
         );
     }
 
+    /**
+     * @psalm-return Xls::class|Xlsx::class
+     */
     private function createWriter(string $writer): string
     {
         if($writer === 'xls') {

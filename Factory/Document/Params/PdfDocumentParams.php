@@ -22,6 +22,11 @@ final class PdfDocumentParams extends AbstractDocumentParams
 
     protected ?string $footerTemplate = null;
 
+    /**
+     * @return (mixed|string)[]
+     *
+     * @psalm-return array{tempDir: string,...}
+     */
     public function getOptionsGenerator(): array
     {
         return array_merge($this->optionsGenerator, ['tempDir' => $this->getTempDir()]);

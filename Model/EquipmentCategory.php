@@ -30,6 +30,9 @@ class EquipmentCategory extends BaseCategory implements EquipmentCategoryInterfa
         $this->equipments = new ArrayCollection();
     }
 
+    /**
+     * @psalm-return Collection<array-key, EquipmentInterface>
+     */
     public function getEquipments(): Collection
     {
         return $this->equipments;

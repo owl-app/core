@@ -8,6 +8,11 @@ use Owl\Component\Status\Model\Status;
 
 class SuggestionStatus extends Status implements SuggestionStatusInterface
 {
+    /**
+     * @return string[]
+     *
+     * @psalm-return array{new: 'owl.ui.status_new', in_progress: 'owl.ui.status_in_progress', realized: 'owl.ui.status_realized', cancelled: 'owl.ui.status_cancelled'}
+     */
     public function getStatusesLabels(): array
     {
         return [

@@ -24,7 +24,7 @@ class RbacVoter extends Voter
         return false;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
     {
         $user = $this->adminUserContext->getUser();
 

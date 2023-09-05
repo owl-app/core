@@ -48,6 +48,9 @@ class EquipmentRefueling implements EquipmentRefuelingInterface
         return $this->id;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -98,6 +101,9 @@ class EquipmentRefueling implements EquipmentRefuelingInterface
         $this->comment = $comment;
     }
 
+    /**
+     * @return BaseEquipmentnterface
+     */
     public function getEquipment(): ?BaseEquipmentnterface
     {
         return $this->equipment;
@@ -108,6 +114,9 @@ class EquipmentRefueling implements EquipmentRefuelingInterface
         $this->equipment = $equipment;
     }
 
+    /**
+     * @return AdminUserInterface|null
+     */
     public function getUser(): ?BaseUserInterface
     {
         return $this->user;
