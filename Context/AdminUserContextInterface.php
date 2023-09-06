@@ -13,6 +13,8 @@ interface AdminUserContextInterface
 
     public function getAccessCompany(): ?CompanyInterface;
 
+    public function getAccessCompaniesIds(): array;
+
     public function getRoleCanonicalName(): ?string;
 
     public function getTheme(): ?string;

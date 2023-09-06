@@ -10,7 +10,7 @@ interface RoleSettingInterface extends ResourceInterface
 {
     public function getCanonicalName(): string;
 
-    public function setCanonicalName(string $name): void;
+    public function setCanonicalName(string $canonicalName): void;
 
     public function getTheme(): string;
 
