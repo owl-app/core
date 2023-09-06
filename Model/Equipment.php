@@ -154,9 +154,6 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         }
     }
 
-    /**
-     * @return false
-     */
     public function hasEvent(EquipmentEventInterface $event): bool
     {
         return $this->events->contains($event);
@@ -201,9 +198,6 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         }
     }
 
-    /**
-     * @return false
-     */
     public function hasRefueling(EquipmentRefuelingInterface $refueling): bool
     {
         return $this->refuelings->contains($refueling);
