@@ -7,7 +7,6 @@ namespace Owl\Component\Core\Model;
 use Owl\Component\Core\Model\Authorization\OwnerableUserInterface;
 use Owl\Component\User\Model\UserAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Owl\Component\Equipment\Model\EquipmentInterface as BaseEquipmentnterface;
 
 interface EquipmentEventInterface extends
     ResourceInterface,
@@ -21,7 +20,7 @@ interface EquipmentEventInterface extends
 
     public function getDate(): ?\DateTimeInterface;
 
-    public function setDate(?\DateTimeInterface $dateEvent): void;
+    public function setDate(?\DateTimeInterface $date): void;
 
     public function getDateNotify(): ?\DateTimeInterface;
 
@@ -30,10 +29,6 @@ interface EquipmentEventInterface extends
     public function getDescription(): string;
 
     public function setDescription(string $description): void;
-
-    public function getEquipment(): ?BaseEquipmentnterface;
-
-    public function setEquipment(?BaseEquipmentnterface $equipment): void;
 
     public function getNotifyState(): string;
 

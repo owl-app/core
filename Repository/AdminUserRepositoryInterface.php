@@ -6,8 +6,13 @@ namespace Owl\Component\Core\Repository;
 
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Doctrine\ORM\QueryBuilder;
+use Owl\Component\Core\Model\AdminUserInterface;
 
-interface AdminUserRepositoryInterface extends RepositoryInterface
+/**
+ * @template T of AdminUserInterface
+ *
+ * @extends RepositoryInterface<T>
+ */interface AdminUserRepositoryInterface extends RepositoryInterface
 {
     public function findByCompany($companyId): QueryBuilder;
 

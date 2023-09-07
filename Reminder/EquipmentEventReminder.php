@@ -29,7 +29,7 @@ final class EquipmentEventReminder implements EquipmentEventReminderInterface
         foreach ($waitingEquipmentEvents as $waitingEquipmentEvent) {
             try{
                 $this->equipmentEventEmailManager->sendNotifyEmail($waitingEquipmentEvent);
-            } catch(\Swift_TransportException $e) {
+            } catch(\Exception $e) {
                 $this->logger->error(
                     sprintf('An error occurred while sending notify email for equipment event #%s', $waitingEquipmentEvent->getId()),
                     ['exception' => $e, 'message' => $e->getMessage()]

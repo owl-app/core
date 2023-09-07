@@ -7,7 +7,6 @@ namespace Owl\Component\Core\Model;
 use Owl\Component\Core\Model\Authorization\OwnerableUserInterface;
 use Owl\Component\User\Model\UserAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Owl\Component\Equipment\Model\EquipmentInterface as BaseEquipmentnterface;
 
 interface EquipmentRefuelingInterface extends
     ResourceInterface,
@@ -17,7 +16,7 @@ interface EquipmentRefuelingInterface extends
 {
     public function getDate(): ?\DateTimeInterface;
 
-    public function setDate(?\DateTimeInterface $dateEvent): void;
+    public function setDate(?\DateTimeInterface $date): void;
 
     public function getMileage(): int;
 
@@ -33,9 +32,5 @@ interface EquipmentRefuelingInterface extends
 
     public function getComment(): ?string;
 
-    public function setComment(string $description): void;
-
-    public function getEquipment(): ?BaseEquipmentnterface;
-
-    public function setEquipment(?BaseEquipmentnterface $equipment): void;
+    public function setComment(string $comment): void;
 }
