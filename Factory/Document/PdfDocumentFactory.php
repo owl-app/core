@@ -6,6 +6,8 @@ namespace Owl\Component\Core\Factory\Document;
 
 use Owl\Component\Core\Factory\Document\Params\DocumentParamsInterface;
 use Mpdf\Mpdf;
+use Owl\Component\Core\Factory\Document\Params\PdfDocumentParams;
+use Owl\Component\Core\Factory\Document\Params\PdfDocumentParamsInterface;
 use Twig\Environment;
 
 class PdfDocumentFactory implements DocumentFactoryInterface
@@ -19,6 +21,8 @@ class PdfDocumentFactory implements DocumentFactoryInterface
     }
 
     /**
+     * @param PdfDocumentParamsInterface & DocumentParamsInterface $params
+     * 
      * @return PdfDocument
      */
     public function createDocument(DocumentParamsInterface $params = null): DocumentInterface

@@ -19,7 +19,7 @@ final class AuthorizationChecker implements AuthorizationCheckerInterface
 
     public function isGranted(RequestConfiguration $configuration, $resource = null): bool
     {
-        $route = $configuration->getRequest()->get('_route');
+        $route = $configuration->getRequest()->attributes->get('_route');
 
         return $this->authorizationChecker->isGranted($route, $resource);
     }

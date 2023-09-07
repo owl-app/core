@@ -6,13 +6,14 @@ namespace Owl\Component\Core\Factory\Document;
 
 use Owl\Component\Core\Factory\Document\Params\DocumentParamsInterface;
 use Mpdf\Mpdf;
+use Owl\Component\Core\Factory\Document\Params\PdfDocumentParams;
 use Twig\Environment;
 class PdfDocument implements DocumentInterface
 {
     public function __construct(
         private Mpdf $pdfGenerator,
         private Environment $templatingEngine,
-        private DocumentParamsInterface $params
+        private PdfDocumentParams $params
     ) {}
 
     public function generateResponse(string $filename, array $data = [])

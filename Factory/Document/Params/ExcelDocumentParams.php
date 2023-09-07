@@ -6,7 +6,7 @@ namespace Owl\Component\Core\Factory\Document\Params;
 
 use Owl\Component\Core\Exception\InvalidDocumentConfigurationException;
 
-final class ExcelDocumentParams extends AbstractDocumentParams
+final class ExcelDocumentParams extends AbstractDocumentParams implements ExcelDocumentParamsInterface
 {
     protected string $builder;
 

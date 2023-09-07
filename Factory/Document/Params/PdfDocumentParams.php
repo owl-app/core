@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Factory\Document\Params;
 
-final class PdfDocumentParams extends AbstractDocumentParams
+use Twig\TemplateWrapper;
+
+final class PdfDocumentParams extends AbstractDocumentParams implements PdfDocumentParamsInterface
 {
     protected array $optionsGenerator = [
         'mode' => 'utf-8',
@@ -20,11 +22,9 @@ final class PdfDocumentParams extends AbstractDocumentParams
 
     protected string $template;
 
-    protected ?string $footerTemplate = null;
+    protected TemplateWrapper|string $footerTemplate;
 
     /**
-     * @return (mixed|string)[]
-     *
      * @psalm-return array{tempDir: string,...}
      */
     public function getOptionsGenerator(): array
@@ -37,7 +37,7 @@ final class PdfDocumentParams extends AbstractDocumentParams
         return $this->template;
     }
 
-    public function getFooterTemplate(): ?string
+    public function getFooterTemplate(): TemplateWrapper|string
     {
         return $this->footerTemplate;
     }

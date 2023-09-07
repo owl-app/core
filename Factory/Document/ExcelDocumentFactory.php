@@ -7,6 +7,7 @@ namespace Owl\Component\Core\Factory\Document;
 use Owl\Component\Core\Builder\ExcelBuilderInterface;
 use Owl\Component\Core\Exception\InvalidDocumentConfigurationException;
 use Owl\Component\Core\Factory\Document\Params\DocumentParamsInterface;
+use Owl\Component\Core\Factory\Document\Params\ExcelDocumentParamsInterface;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
@@ -22,6 +23,8 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
     }
 
     /**
+     * @param ExcelDocumentParamsInterface & DocumentParamsInterface $params
+     * 
      * @return ExcelDocument
      */
     public function createDocument(DocumentParamsInterface $params = null): DocumentInterface
@@ -57,6 +60,7 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
             return $this->container->get($builder);
         }
 
+        /** @psalm-var class-string<ExcelBuilderInterface> $builder */
         return new $builder;
     }
 }
