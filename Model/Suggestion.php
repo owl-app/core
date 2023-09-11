@@ -78,6 +78,16 @@ class Suggestion extends BaseSuggestion implements SuggestionInterface
         $this->company = $company;
     }
 
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): void
+    {
+        $this->status = $status;
+    }
+
     public function getFiles(): Collection
     {
         return $this->files;

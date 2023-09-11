@@ -12,7 +12,8 @@ use Owl\Component\Core\Model\AdminUserInterface;
  * @template T of AdminUserInterface
  *
  * @extends RepositoryInterface<T>
- */interface AdminUserRepositoryInterface extends RepositoryInterface
+ */
+interface AdminUserRepositoryInterface extends RepositoryInterface
 {
     public function findByCompany($companyId): QueryBuilder;
 
