@@ -20,11 +20,11 @@ final class LocationFilter implements FilterInterface
         $dataSource->restrict(
             '(
             6371 * acos( 
-                cos( radians( '.$data['latitude'].' ) ) * 
-                cos( radians( '.$options['fields']['latitude'].' ) ) * 
-                cos( radians( '.$options['fields']['longitude'].' ) - radians( '.$data['longitude'].' ) ) + sin( radians( '.$data['latitude'].' ) ) 
-                * sin( radians( '.$options['fields']['latitude'].' ) ) 
-            )) < '.$data['distance']
+                cos( radians( ' . $data['latitude'] . ' ) ) * 
+                cos( radians( ' . $options['fields']['latitude'] . ' ) ) * 
+                cos( radians( ' . $options['fields']['longitude'] . ' ) - radians( ' . $data['longitude'] . ' ) ) + sin( radians( ' . $data['latitude'] . ' ) ) 
+                * sin( radians( ' . $options['fields']['latitude'] . ' ) ) 
+            )) < ' . $data['distance'],
         );
     }
 }

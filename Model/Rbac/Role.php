@@ -8,14 +8,10 @@ use Owl\Component\Rbac\Model\Role as BaseRole;
 
 class Role extends BaseRole implements RoleInterface
 {
-    /**
-     * @var RoleSettingInterface
-     */
+    /** @var RoleSettingInterface */
     protected $setting;
 
     /**
-     * @return string
-     *
      * @psalm-return 'role'
      */
     public function getType(): string

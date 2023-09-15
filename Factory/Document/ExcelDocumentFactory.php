@@ -9,8 +9,8 @@ use Owl\Component\Core\Exception\InvalidDocumentConfigurationException;
 use Owl\Component\Core\Factory\Document\Params\DocumentParamsInterface;
 use Owl\Component\Core\Factory\Document\Params\ExcelDocumentParamsInterface;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ExcelDocumentFactory implements DocumentFactoryInterface
@@ -23,8 +23,8 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
     }
 
     /**
-     * @param ExcelDocumentParamsInterface & DocumentParamsInterface $params
-     * 
+     * @param ExcelDocumentParamsInterface&DocumentParamsInterface $params
+     *
      * @return ExcelDocument
      */
     public function createDocument(DocumentParamsInterface $params = null): DocumentInterface
@@ -38,7 +38,7 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
             new Spreadsheet(),
             $this->createWriter($params->getWriter()),
             $this->getBuilder($params->getBuilder()),
-            $params
+            $params,
         );
     }
 
@@ -47,7 +47,7 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
      */
     private function createWriter(string $writer): string
     {
-        if($writer === 'xls') {
+        if ($writer === 'xls') {
             return Xls::class;
         }
 
@@ -56,11 +56,11 @@ class ExcelDocumentFactory implements DocumentFactoryInterface
 
     private function getBuilder(string $builder): ExcelBuilderInterface
     {
-        if($this->container->has($builder)) {
+        if ($this->container->has($builder)) {
             return $this->container->get($builder);
         }
 
         /** @psalm-var class-string<ExcelBuilderInterface> $builder */
-        return new $builder;
+        return new $builder();
     }
 }

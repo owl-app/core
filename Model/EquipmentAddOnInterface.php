@@ -6,7 +6,8 @@ namespace Owl\Component\Core\Model;
 
 use Owl\Component\Equipment\Model\EquipmentInterface as BaseEquipmentnterface;
 
-interface EquipmentAddOnInterface {
+interface EquipmentAddOnInterface
+{
     public const ADDON_REFUELING_NAME = 'owl.ui.equipment_addon.refueling_name';
 
     public const ADDON_EVENT_NAME = 'owl.ui.equipment_addon.event_name';

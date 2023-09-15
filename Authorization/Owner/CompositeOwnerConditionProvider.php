@@ -6,7 +6,6 @@ namespace Owl\Component\Core\Authorization\Owner;
 
 use Laminas\Stdlib\PriorityQueue;
 use Owl\Component\Core\Authorization\Owner\Condition\OwnerConditionInterface;
-use Owl\Component\Core\Context\AdminUserContextInterface;
 
 final class CompositeOwnerConditionProvider implements OwnerConditionProviderInterface
 {
@@ -19,7 +18,7 @@ final class CompositeOwnerConditionProvider implements OwnerConditionProviderInt
 
     public function __construct()
     {
-        $this->ownerConditions = new PriorityQueue;
+        $this->ownerConditions = new PriorityQueue();
     }
 
     public function addCondition(OwnerConditionInterface $ownerCondition, int $priority = 0): void
@@ -29,9 +28,8 @@ final class CompositeOwnerConditionProvider implements OwnerConditionProviderInt
 
     public function provide(string $model): ?OwnerConditionInterface
     {
-        foreach($this->ownerConditions as $ownerCondition)
-        {
-            if($ownerCondition->supports($model)) {
+        foreach ($this->ownerConditions as $ownerCondition) {
+            if ($ownerCondition->supports($model)) {
                 return $ownerCondition;
             }
         }

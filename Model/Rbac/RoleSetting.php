@@ -18,7 +18,9 @@ class RoleSetting implements RoleSettingInterface
     /** @var RoleInterface */
     protected $role;
 
-    public function __construct() {}
+    public function __construct()
+    {
+    }
 
     /**
      * @return int

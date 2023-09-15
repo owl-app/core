@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Model;
 
-
-use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 use Owl\Component\Equipment\Model\EquipmentInterface as BaseEquipmentnterface;
-use Owl\Component\Core\Model\AdminUserInterface;
+use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 
 class EquipmentRefueling implements EquipmentRefuelingInterface
@@ -20,13 +18,13 @@ class EquipmentRefueling implements EquipmentRefuelingInterface
     /** @var \DateTimeInterface */
     protected $date;
 
-    /** @var integer */
+    /** @var int */
     protected $mileage;
 
     /** @var float */
     protected $quantity;
 
-    /** @var integer */
+    /** @var int */
     protected $value;
 
     /** @var string|null */
@@ -89,7 +87,7 @@ class EquipmentRefueling implements EquipmentRefuelingInterface
     public function setValue(int $value): void
     {
         $this->value = $value;
-    }    
+    }
 
     public function getComment(): ?string
     {

@@ -20,7 +20,7 @@ use Owl\Component\Status\Model\OwnerInterface as StatusOwnerInterface;
 use Owl\Component\User\Model\PermissionUserInterface;
 use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 
-interface AdminUserInterface extends 
+interface AdminUserInterface extends
     BaseUserInterface,
     PermissionUserInterface,
     StatusOwnerInterface,
@@ -57,7 +57,7 @@ interface AdminUserInterface extends
 
     public function getRegistration(): ?AdminUserRegistrationDataInterface;
 
-    public function setRegistration(?AdminUserRegistrationDataInterface $registration): void;    
+    public function setRegistration(?AdminUserRegistrationDataInterface $registration): void;
 
     public function hasRegistration(): bool;
 }

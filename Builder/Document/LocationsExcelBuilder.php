@@ -15,12 +15,12 @@ class LocationsExcelBuilder implements ExcelBuilderInterface
         $sheetIndex = 0;
 
         foreach ($data['locations'] as $location) {
-            # If number of sheet is 0 then no new worksheets are created
+            // If number of sheet is 0 then no new worksheets are created
             if ($sheetIndex > 0) {
                 $spreadsheet->createSheet();
             }
 
-            # sheet for the worksheet is setted and a title is assigned
+            // sheet for the worksheet is setted and a title is assigned
             $sheet = $spreadsheet->setActiveSheetIndex($sheetIndex)->setTitle($translator->trans('owl.ui.location') . ' - ' . $location->getId());
 
             $sheet->getColumnDimension('A')->setWidth(27);
@@ -67,11 +67,11 @@ class LocationsExcelBuilder implements ExcelBuilderInterface
                     $sheet
                         ->getStyle('E' . ($i + 2))
                         ->getNumberFormat()
-                        ->setFormatCode('# ##0.00 [$zł-415];-# ##0.00 [$zł-415]');
+                        ->setFormatCode("#\u{a0}##0.00 [\$zł-415];-#\u{a0}##0.00 [\$zł-415]");
 
-                    $sheet->setCellValue('E' . ($i + 2), ($equipment->getPrice()/100));
+                    $sheet->setCellValue('E' . ($i + 2), ($equipment->getPrice() / 100));
 
-                    $i++;
+                    ++$i;
                 }
 
                 $numberSumCell = (count($location->getEquipments()) + 2);
@@ -80,14 +80,12 @@ class LocationsExcelBuilder implements ExcelBuilderInterface
                 $sheet
                     ->getStyle('E' . $numberSumCell)
                     ->getNumberFormat()
-                    ->setFormatCode('# ##0.00 [$zł-415];-# ##0.00 [$zł-415]');
-                $sheet->setCellValue('E' . $numberSumCell, $location->getSumPrice()/100);
-
-                
+                    ->setFormatCode("#\u{a0}##0.00 [\$zł-415];-#\u{a0}##0.00 [\$zł-415]");
+                $sheet->setCellValue('E' . $numberSumCell, $location->getSumPrice() / 100);
             }
 
-            # Index number is incremented for the next worksheet
-            $sheetIndex++;
+            // Index number is incremented for the next worksheet
+            ++$sheetIndex;
         }
 
         return $spreadsheet;

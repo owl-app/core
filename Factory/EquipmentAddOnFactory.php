@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Factory;
 
-use Owl\Component\Core\Model\EquipmentInterface;
 use Owl\Component\Core\Model\EquipmentAddOnInterface;
+use Owl\Component\Core\Model\EquipmentInterface;
 use Owl\Component\User\Model\UserAwareInterface;
 use Owl\Component\User\Model\UserInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
@@ -41,7 +41,7 @@ final class EquipmentAddOnFactory implements EquipmentAddOnFactoryInterface
 
     public function createForSubjectWithOwner(EquipmentInterface $equipment, ?UserInterface $owner): EquipmentAddOnInterface
     {
-        /** @var EquipmentAddOnInterface & UserAwareInterface $refueling */
+        /** @var EquipmentAddOnInterface&UserAwareInterface $refueling */
         $refueling = $this->createForSubject($equipment);
         $refueling->setUser($owner);
 

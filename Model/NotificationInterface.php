@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Model;
 
-use Owl\Component\Notification\Model\NotificationInterface as BaseNotificationInterface;
 use Owl\Component\File\Model\FileableInterface;
+use Owl\Component\Notification\Model\NotificationInterface as BaseNotificationInterface;
 use Owl\Component\User\Model\UserAwareInterface;
 
 interface NotificationInterface extends

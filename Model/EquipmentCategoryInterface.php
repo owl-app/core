@@ -6,12 +6,11 @@ namespace Owl\Component\Core\Model;
 
 use Owl\Component\Category\Model\CategoryInterface as BaseCategoryInterface;
 
-interface EquipmentCategoryInterface extends
-    BaseCategoryInterface
+interface EquipmentCategoryInterface extends BaseCategoryInterface
 {
     public const TRANSPORT_ID = 17;
 
     public const CODES = [
-        self::TRANSPORT_ID => 'transport'
+        self::TRANSPORT_ID => 'transport',
     ];
 }

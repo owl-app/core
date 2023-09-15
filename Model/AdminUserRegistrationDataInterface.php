@@ -7,8 +7,7 @@ namespace Owl\Component\Core\Model;
 use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-interface AdminUserRegistrationDataInterface extends
-    ResourceInterface
+interface AdminUserRegistrationDataInterface extends ResourceInterface
 {
     public const STATUS_NEW = 'new';
 

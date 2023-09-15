@@ -8,5 +8,4 @@ use Owl\Component\File\Model\File;
 
 class EquipmentFile extends File
 {
-
 }

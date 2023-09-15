@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Model;
 
-
-use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 use Owl\Component\Equipment\Model\EquipmentInterface as BaseEquipmentnterface;
-use Owl\Component\Core\Model\AdminUserInterface;
+use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 
 class EquipmentEvent implements EquipmentEventInterface
 {

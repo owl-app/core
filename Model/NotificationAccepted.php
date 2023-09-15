@@ -4,18 +4,15 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Model;
 
-
-use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 use Owl\Component\Notification\Model\NotificationInterface as BaseNotificationInterface;
+use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 
 class NotificationAccepted implements NotificationAcceptedInterface
 {
     /** @var mixed */
     protected $id;
 
-    /** 
-     * @var \Owl\Component\Core\Model\AdminUserInterface|null
-     **/
+    /** @var \Owl\Component\Core\Model\AdminUserInterface|null * */
     protected $user;
 
     /** @var NotificationInterface */
@@ -59,7 +56,7 @@ class NotificationAccepted implements NotificationAcceptedInterface
     {
         $this->notification = $notification;
     }
-    
+
     public function getAcceptedAt(): ?\DateTimeInterface
     {
         return $this->acceptedAt;

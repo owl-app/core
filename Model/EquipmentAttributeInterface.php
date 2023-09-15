@@ -11,5 +11,4 @@ interface EquipmentAttributeInterface extends
     BaseEquipmentAttributeInterface,
     CategorizableInterface
 {
-
 }

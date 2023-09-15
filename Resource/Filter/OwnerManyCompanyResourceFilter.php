@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Resource\Filter;
 
-use Owl\Component\Core\Context\AdminUserContextInterface;
-use Owl\Bridge\SyliusResource\Doctrine\Orm\Filter\FilterInterface;
 use Doctrine\ORM\QueryBuilder;
+use Owl\Bridge\SyliusResource\Doctrine\Orm\Filter\FilterInterface;
+use Owl\Component\Core\Context\AdminUserContextInterface;
 use Owl\Component\Core\Model\Authorization\ManyOwnerableCompanyInterface;
 use Sylius\Bundle\GridBundle\Doctrine\ORM\ExpressionBuilder;
 
@@ -30,7 +30,7 @@ final class OwnerManyCompanyResourceFilter implements FilterInterface
         $expressionBuilder = new ExpressionBuilder($queryBuilder);
 
         $queryBuilder->andWhere(
-            $expressionBuilder->in('companies.id', $this->adminUserContext->getAccessCompaniesIds())
+            $expressionBuilder->in('companies.id', $this->adminUserContext->getAccessCompaniesIds()),
         );
     }
 }

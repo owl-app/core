@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Repository;
 
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Owl\Component\Status\Model\StatusInterface;
+use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 /**
  * @template T of StatusInterface

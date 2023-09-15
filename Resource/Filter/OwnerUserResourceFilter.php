@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Resource\Filter;
 
-use Owl\Component\Core\Context\AdminUserContextInterface;
-use Owl\Bridge\SyliusResource\Doctrine\Orm\Filter\FilterInterface;
 use Doctrine\ORM\QueryBuilder;
-use Sylius\Bundle\GridBundle\Doctrine\ORM\ExpressionBuilder;
+use Owl\Bridge\SyliusResource\Doctrine\Orm\Filter\FilterInterface;
+use Owl\Component\Core\Context\AdminUserContextInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableUserInterface;
+use Sylius\Bundle\GridBundle\Doctrine\ORM\ExpressionBuilder;
 
 final class OwnerUserResourceFilter implements FilterInterface
 {
@@ -30,7 +30,7 @@ final class OwnerUserResourceFilter implements FilterInterface
         $expressionBuilder = new ExpressionBuilder($queryBuilder);
 
         $queryBuilder->andWhere(
-            $expressionBuilder->equals('user', $this->adminUserContext->getUser())
+            $expressionBuilder->equals('user', $this->adminUserContext->getUser()),
         );
     }
 }

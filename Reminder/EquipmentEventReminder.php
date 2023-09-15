@@ -18,7 +18,7 @@ final class EquipmentEventReminder implements EquipmentEventReminderInterface
         private EquipmentEventRepositoryInterface $equipmentEventRepository,
         private EquipmentEventEmailManagerInterface $equipmentEventEmailManager,
         private Factory $stateMachineFactory,
-        private LoggerInterface $logger
+        private LoggerInterface $logger,
     ) {
     }
 
@@ -27,12 +27,12 @@ final class EquipmentEventReminder implements EquipmentEventReminderInterface
         $waitingEquipmentEvents = $this->equipmentEventRepository->findWaitingToSend();
 
         foreach ($waitingEquipmentEvents as $waitingEquipmentEvent) {
-            try{
+            try {
                 $this->equipmentEventEmailManager->sendNotifyEmail($waitingEquipmentEvent);
             } catch(\Exception $e) {
                 $this->logger->error(
                     sprintf('An error occurred while sending notify email for equipment event #%s', $waitingEquipmentEvent->getId()),
-                    ['exception' => $e, 'message' => $e->getMessage()]
+                    ['exception' => $e, 'message' => $e->getMessage()],
                 );
             }
 
@@ -41,7 +41,7 @@ final class EquipmentEventReminder implements EquipmentEventReminderInterface
             } catch (SMException $e) {
                 $this->logger->error(
                     sprintf('An error occurred while changing status equipment event to sended #%s', $waitingEquipmentEvent->getId()),
-                    ['exception' => $e, 'message' => $e->getMessage()]
+                    ['exception' => $e, 'message' => $e->getMessage()],
                 );
             }
         }

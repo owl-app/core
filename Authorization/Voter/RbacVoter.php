@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Owl\Component\Core\Authorization\Voter;
 
 use Owl\Component\Core\Context\AdminUserContextInterface;
@@ -12,12 +14,13 @@ class RbacVoter extends Voter
 {
     public function __construct(
         private RouterInterface $router,
-        private AdminUserContextInterface $adminUserContext
-    ) {}
+        private AdminUserContextInterface $adminUserContext,
+    ) {
+    }
 
     protected function supports(string $attribute, $subject): bool
     {
-        if(!empty($attribute) && !is_null($this->router->getRouteCollection()->get($attribute))) {
+        if (!empty($attribute) && null !== $this->router->getRouteCollection()->get($attribute)) {
             return true;
         }
 
@@ -28,7 +31,7 @@ class RbacVoter extends Voter
     {
         $user = $this->adminUserContext->getUser();
 
-        if($user && in_array($attribute, $user->getPermissions())) {
+        if ($user && in_array($attribute, $user->getPermissions())) {
             return VoterInterface::ACCESS_GRANTED;
         }
 

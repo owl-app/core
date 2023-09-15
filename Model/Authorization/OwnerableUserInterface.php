@@ -6,8 +6,7 @@ namespace Owl\Component\Core\Model\Authorization;
 
 use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 
-interface OwnerableUserInterface {
-
+interface OwnerableUserInterface
+{
     public function getUser(): ?BaseUserInterface;
-
 }

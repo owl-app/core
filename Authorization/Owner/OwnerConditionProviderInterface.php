@@ -10,4 +10,3 @@ interface OwnerConditionProviderInterface
 {
     public function provide(string $model): ?OwnerConditionInterface;
 }
-

@@ -6,5 +6,5 @@ namespace Owl\Component\Core\Provider;
 
 interface EquipmentCategoryCodeProviderInterface
 {
-    public function getCode(int $id):? string;
+    public function getCode(int $id): ?string;
 }

@@ -9,8 +9,6 @@ use Owl\Component\Core\Model\EquipmentCategoryInterface;
 final class EquipmentCategoryChecker implements EquipmentCategoryCheckerInterface
 {
     /**
-     * @return int
-     *
      * @psalm-return 17
      */
     public function getTransportId(): int

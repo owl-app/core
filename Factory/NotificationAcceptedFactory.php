@@ -16,7 +16,9 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
  */
 final class NotificationAcceptedFactory implements NotificationAcceptedFactoryInterface
 {
-    public function __construct(private FactoryInterface $defaultFactory) {}
+    public function __construct(private FactoryInterface $defaultFactory)
+    {
+    }
 
     public function createNew(): NotificationAcceptedInterface
     {

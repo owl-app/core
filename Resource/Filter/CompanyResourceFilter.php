@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Resource\Filter;
 
-use Owl\Component\Core\Context\AdminUserContextInterface;
-use Owl\Bridge\SyliusResource\Doctrine\Orm\Filter\FilterInterface;
 use Doctrine\ORM\QueryBuilder;
-use Sylius\Bundle\GridBundle\Doctrine\ORM\ExpressionBuilder;
+use Owl\Bridge\SyliusResource\Doctrine\Orm\Filter\FilterInterface;
 use Owl\Component\Company\Model\CompanyInterface;
+use Owl\Component\Core\Context\AdminUserContextInterface;
+use Sylius\Bundle\GridBundle\Doctrine\ORM\ExpressionBuilder;
 
 final class CompanyResourceFilter implements FilterInterface
 {
@@ -33,7 +33,7 @@ final class CompanyResourceFilter implements FilterInterface
         $expressionBuilder = new ExpressionBuilder($queryBuilder);
 
         $queryBuilder->andWhere(
-            $expressionBuilder->in('id', $this->adminUserContext->getAccessCompaniesIds())
+            $expressionBuilder->in('id', $this->adminUserContext->getAccessCompaniesIds()),
         );
     }
 }

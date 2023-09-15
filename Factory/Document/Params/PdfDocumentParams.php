@@ -17,7 +17,7 @@ final class PdfDocumentParams extends AbstractDocumentParams implements PdfDocum
         'margin_left' => 15,
         'margin_right' => 15,
         'margin_top' => 15,
-        'margin_bottom' => 15
+        'margin_bottom' => 15,
     ];
 
     protected string $template;

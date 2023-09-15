@@ -39,7 +39,7 @@ final class TranslationLocaleProvider implements TranslationLocaleProviderInterf
             function (LocaleInterface $locale) {
                 return (string) $locale->getCode();
             },
-            $locales
+            $locales,
         );
     }
 

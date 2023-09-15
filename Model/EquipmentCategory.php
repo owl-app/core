@@ -17,9 +17,7 @@ class EquipmentCategory extends BaseCategory implements EquipmentCategoryInterfa
      */
     protected $equipments;
 
-    /**
-     * @var array $addons
-     */
+    /** @var array */
     protected $addons;
 
     public function __construct()

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Owl\Component\Core\Authorization\Voter;
 
 use Owl\Component\Core\Context\AdminUserContextInterface;
@@ -19,7 +21,7 @@ final class OwnerCompanyVoter extends Voter
 
     protected function supports(string $attribute, $subject): bool
     {
-        if($subject instanceof OwnerableCompanyInterface && $this->adminUserContext->isAdminCompany()) {
+        if ($subject instanceof OwnerableCompanyInterface && $this->adminUserContext->isAdminCompany()) {
             return true;
         }
 
@@ -28,8 +30,9 @@ final class OwnerCompanyVoter extends Voter
 
     protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
     {
-        if($subject->getCompany()->getId() === $this->adminUserContext->getAccessCompany()->getId())
+        if ($subject->getCompany()->getId() === $this->adminUserContext->getAccessCompany()->getId()) {
             return VoterInterface::ACCESS_GRANTED;
+        }
 
         return VoterInterface::ACCESS_ABSTAIN;
     }

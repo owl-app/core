@@ -8,9 +8,7 @@ use Owl\Component\Company\Model\Company as BaseCompany;
 
 class Company extends BaseCompany implements CompanyInterface
 {
-    /**
-     * @var object|null
-     */
+    /** @var object|null */
     protected $owner;
 
     public function getOwner(): object|null

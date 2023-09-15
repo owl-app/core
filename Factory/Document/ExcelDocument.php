@@ -19,8 +19,9 @@ class ExcelDocument implements DocumentInterface
         private Spreadsheet $excelGenerator,
         private string $classWriter,
         private ExcelBuilderInterface $builder,
-        private DocumentParamsInterface $params
-    ) {}
+        private DocumentParamsInterface $params,
+    ) {
+    }
 
     /**
      * @return StreamedResponse
@@ -32,27 +33,27 @@ class ExcelDocument implements DocumentInterface
 
         $writer = new $classWriter($content);
 
-        $response =  new StreamedResponse(
+        $response = new StreamedResponse(
             function () use ($writer) {
                 $writer->save('php://output');
-            }
+            },
         );
 
-        $this->setHeaders($response, $filename.'.'.$this->getFilesExtension($writer));
-        
+        $this->setHeaders($response, $filename . '.' . $this->getFilesExtension($writer));
+
         return $response;
     }
 
     private function setHeaders(StreamedResponse $response, string $filename): void
     {
         $response->headers->set('Content-Type', 'application/vnd.ms-excel');
-        $response->headers->set('Content-Disposition', 'attachment;filename="'.$filename.'"');
-        $response->headers->set('Cache-Control','max-age=0');
+        $response->headers->set('Content-Disposition', 'attachment;filename="' . $filename . '"');
+        $response->headers->set('Cache-Control', 'max-age=0');
     }
 
     private function getFilesExtension(IWriter $writer): string
     {
-        if($writer instanceof Xls) {
+        if ($writer instanceof Xls) {
             return 'xls';
         }
 

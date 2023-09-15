@@ -64,7 +64,7 @@ class AdminUser extends User implements AdminUserInterface
      */
     public function getName(): ?string
     {
-        return $this->firstName.' '.$this->lastName;
+        return $this->firstName . ' ' . $this->lastName;
     }
 
     public function getDisplayName(): string

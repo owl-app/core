@@ -9,9 +9,7 @@ use Owl\Component\Equipment\Model\EquipmentAttribute as BaseEquipmentAttribute;
 
 class EquipmentAttribute extends BaseEquipmentAttribute implements EquipmentAttributeInterface
 {
-    /**
-     * @var \Owl\Component\Core\Model\EquipmentCategoryInterface|null
-     */
+    /** @var \Owl\Component\Core\Model\EquipmentCategoryInterface|null */
     protected $category;
 
     /**

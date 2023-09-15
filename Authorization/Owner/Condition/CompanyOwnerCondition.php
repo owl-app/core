@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Owl\Component\Core\Authorization\Owner\Condition;
 
 use Owl\Component\Core\Context\AdminUserContextInterface;
-use Sylius\Component\Grid\Data\ExpressionBuilderInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableCompanyInterface;
-use Owl\Component\Core\Checker\AdminUserRoleCheckerInterface;
+use Sylius\Component\Grid\Data\ExpressionBuilderInterface;
 
 final class CompanyOwnerCondition implements OwnerConditionInterface
 {
@@ -20,7 +19,7 @@ final class CompanyOwnerCondition implements OwnerConditionInterface
 
     public function supports(string $model): bool
     {
-        if(is_subclass_of($model, OwnerableCompanyInterface::class) && $this->adminUserContext->isAdminCompany()) {
+        if (is_subclass_of($model, OwnerableCompanyInterface::class) && $this->adminUserContext->isAdminCompany()) {
             return true;
         }
 

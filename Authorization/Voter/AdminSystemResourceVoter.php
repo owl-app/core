@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Owl\Component\Core\Authorization\Voter;
 
 use Owl\Component\Core\Context\AdminUserContextInterface;
@@ -19,7 +21,7 @@ final class AdminSystemResourceVoter extends Voter
 
     protected function supports(string $attribute, $subject): bool
     {
-        if($subject instanceof ResourceInterface && $this->adminUserContext->isAdminSystem()) {
+        if ($subject instanceof ResourceInterface && $this->adminUserContext->isAdminSystem()) {
             return true;
         }
 

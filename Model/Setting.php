@@ -8,5 +8,4 @@ use Owl\Component\Setting\Model\Setting as BaseSetting;
 
 class Setting extends BaseSetting
 {
-
 }

@@ -6,11 +6,11 @@ namespace Owl\Component\Core\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Owl\Component\File\Model\FileInterface;
-use Owl\Component\User\Model\UserInterface as BaseUserInterface;
+use Owl\Component\Category\Model\CategoryInterface as BaseCategoryInterface;
 use Owl\Component\Company\Model\CompanyInterface as BaseCompanyInterface;
 use Owl\Component\Equipment\Model\Equipment as BaseEquipment;
-use Owl\Component\Category\Model\CategoryInterface as BaseCategoryInterface;
+use Owl\Component\File\Model\FileInterface;
+use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 use Webmozart\Assert\Assert;
 
 class Equipment extends BaseEquipment implements EquipmentInterface
@@ -28,9 +28,7 @@ class Equipment extends BaseEquipment implements EquipmentInterface
      */
     protected $files;
 
-    /**
-     * @var \Owl\Component\Core\Model\EquipmentCategoryInterface|null
-     */
+    /** @var \Owl\Component\Core\Model\EquipmentCategoryInterface|null */
     protected $category;
 
     /** @var Collection|EquipmentEventInterface[] */
@@ -53,12 +51,9 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         $this->refuelings = new ArrayCollection();
     }
 
-    /**
-     * @return string
-     */
     public function getFullname(): string
     {
-        return $this->name.' - '.$this->symbol;
+        return $this->name . ' - ' . $this->symbol;
     }
 
     public function getFiles(): Collection
@@ -131,7 +126,7 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         Assert::isInstanceOf(
             $event,
             EquipmentEventInterface::class,
-            'Event objects added to a Equipment object have to implement EquipmentEventInterface'
+            'Event objects added to a Equipment object have to implement EquipmentEventInterface',
         );
 
         if (!$this->hasEvent($event)) {
@@ -146,7 +141,7 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         Assert::isInstanceOf(
             $event,
             EquipmentEventInterface::class,
-            'Event objects removed from a Equipment object have to implement EquipmentEventInterface'
+            'Event objects removed from a Equipment object have to implement EquipmentEventInterface',
         );
 
         if ($this->hasEvent($event)) {
@@ -175,7 +170,7 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         Assert::isInstanceOf(
             $refueling,
             EquipmentRefuelingInterface::class,
-            'Refueling objects added to a Equipment object have to implement EquipmentRefuelingInterface'
+            'Refueling objects added to a Equipment object have to implement EquipmentRefuelingInterface',
         );
 
         if (!$this->hasRefueling($refueling)) {
@@ -190,7 +185,7 @@ class Equipment extends BaseEquipment implements EquipmentInterface
         Assert::isInstanceOf(
             $refueling,
             EquipmentRefuelingInterface::class,
-            'Refueling objects removed from a Equipment object have to implement EquipmentRefuelingInterface'
+            'Refueling objects removed from a Equipment object have to implement EquipmentRefuelingInterface',
         );
 
         if ($this->hasRefueling($refueling)) {

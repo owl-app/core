@@ -6,22 +6,18 @@ namespace Owl\Component\Core\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Owl\Component\Company\Model\CompanyInterface as BaseCompanyInterface;
 use Owl\Component\File\Model\FileInterface;
 use Owl\Component\Status\Model\StatusInterface;
 use Owl\Component\Suggestion\Model\Suggestion as BaseSuggestion;
-use Owl\Component\Company\Model\CompanyInterface as BaseCompanyInterface;
 use Owl\Component\User\Model\UserInterface as BaseUserInterface;
 
 class Suggestion extends BaseSuggestion implements SuggestionInterface
 {
-    /**
-     * @var \Owl\Component\Core\Model\AdminUserInterface|null
-     */
+    /** @var \Owl\Component\Core\Model\AdminUserInterface|null */
     protected $user;
 
-    /**
-     * @var \Owl\Component\Core\Model\CompanyInterface|null
-     */
+    /** @var \Owl\Component\Core\Model\CompanyInterface|null */
     protected $company;
 
     /**
@@ -38,7 +34,6 @@ class Suggestion extends BaseSuggestion implements SuggestionInterface
      */
     protected $statuses;
 
-
     public function __construct()
     {
         parent::__construct();
@@ -47,7 +42,7 @@ class Suggestion extends BaseSuggestion implements SuggestionInterface
         $this->files = new ArrayCollection();
     }
 
-    public function getName():? string
+    public function getName(): ?string
     {
         return $this->title;
     }

@@ -8,5 +8,4 @@ use Owl\Component\Rbac\Model\AuthItem as BaseAuthItem;
 
 abstract class AuthItem extends BaseAuthItem
 {
-
 }
