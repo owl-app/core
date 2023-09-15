@@ -40,6 +40,13 @@ class AdminUser extends User implements AdminUserInterface
     protected $company;
 
     /**
+     * @var Collection|BaseCompanyInterface[]
+     *
+     * @psalm-var Collection<array-key, BaseCompanyInterface>
+     */
+    protected $companies;
+
+    /**
      * @var Collection|NotificationAcceptedInterface[]
      *
      * @psalm-var Collection<array-key, NotificationAcceptedInterface>
@@ -55,6 +62,9 @@ class AdminUser extends User implements AdminUserInterface
 
         /** @var ArrayCollection<array-key, NotificationAcceptedInterface> $this->acceptedNotifications */
         $this->acceptedNotifications = new ArrayCollection();
+
+        /** @var ArrayCollection<array-key, BaseCompanyInterface> $this->companies */
+        $this->companies = new ArrayCollection();
 
         $this->localeCode = 'pl';
     }
@@ -176,6 +186,30 @@ class AdminUser extends User implements AdminUserInterface
     public function setCompany(?BaseCompanyInterface $company): void
     {
         $this->company = $company;
+    }
+
+    public function getCompanies(): Collection
+    {
+        return $this->companies;
+    }
+
+    public function addCompany(BaseCompanyInterface $company): void
+    {
+        if (!$this->hasCompany($company)) {
+            $this->companies->add($company);
+        }
+    }
+
+    public function removeCompany(BaseCompanyInterface $company): void
+    {
+        if ($this->hasCompany($company)) {
+            $this->companies->removeElement($company);
+        }
+    }
+
+    public function hasCompany(BaseCompanyInterface $company): bool
+    {
+        return $this->companies->contains($company);
     }
 
     /**

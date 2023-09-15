@@ -13,4 +13,8 @@ interface EquipmentCategoryInterface extends BaseCategoryInterface
     public const CODES = [
         self::TRANSPORT_ID => 'transport',
     ];
+
+    public function getAddons(): array;
+
+    public function setAddons(array $addons): void;
 }
