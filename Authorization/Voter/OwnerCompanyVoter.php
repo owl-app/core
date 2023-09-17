@@ -8,8 +8,13 @@ use Owl\Component\Core\Context\AdminUserContextInterface;
 use Owl\Component\Core\Model\Authorization\OwnerableCompanyInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
-use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
+/**
+ * @template TAttribute of string
+ * @template TSubject of mixed
+ *
+ * @extends Voter<TAttribute, TSubject>
+ */
 final class OwnerCompanyVoter extends Voter
 {
     private AdminUserContextInterface $adminUserContext;
@@ -28,12 +33,12 @@ final class OwnerCompanyVoter extends Voter
         return false;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
         if ($subject->getCompany()->getId() === $this->adminUserContext->getAccessCompany()->getId()) {
-            return VoterInterface::ACCESS_GRANTED;
+            return true;
         }
 
-        return VoterInterface::ACCESS_ABSTAIN;
+        return false;
     }
 }

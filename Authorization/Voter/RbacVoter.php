@@ -8,8 +8,13 @@ use Owl\Component\Core\Context\AdminUserContextInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
-use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
+/**
+ * @template TAttribute of string
+ * @template TSubject of mixed
+ *
+ * @extends Voter<TAttribute, TSubject>
+ */
 class RbacVoter extends Voter
 {
     public function __construct(
@@ -27,14 +32,14 @@ class RbacVoter extends Voter
         return false;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
         $user = $this->adminUserContext->getUser();
 
         if ($user && in_array($attribute, $user->getPermissions())) {
-            return VoterInterface::ACCESS_GRANTED;
+            return true;
         }
 
-        return VoterInterface::ACCESS_ABSTAIN;
+        return false;
     }
 }

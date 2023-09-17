@@ -8,8 +8,13 @@ use Owl\Component\Core\Context\AdminUserContextInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
-use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 
+/**
+ * @template TAttribute of string
+ * @template TSubject of mixed
+ *
+ * @extends Voter<TAttribute, TSubject>
+ */
 final class AdminSystemResourceVoter extends Voter
 {
     private AdminUserContextInterface $adminUserContext;
@@ -28,8 +33,8 @@ final class AdminSystemResourceVoter extends Voter
         return false;
     }
 
-    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): int
+    protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
-        return VoterInterface::ACCESS_GRANTED;
+        return true;
     }
 }
