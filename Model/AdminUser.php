@@ -36,9 +36,6 @@ class AdminUser extends User implements AdminUserInterface
     /** @var BaseRoleInterface */
     protected $role;
 
-    /** @var BaseCompanyInterface */
-    protected $company;
-
     /**
      * @var Collection|BaseCompanyInterface[]
      *
@@ -66,7 +63,7 @@ class AdminUser extends User implements AdminUserInterface
         /** @var ArrayCollection<array-key, BaseCompanyInterface> $this->companies */
         $this->companies = new ArrayCollection();
 
-        $this->localeCode = 'pl';
+        $this->localeCode = 'en';
     }
 
     /**
@@ -173,19 +170,6 @@ class AdminUser extends User implements AdminUserInterface
     public function setRole(?BaseRoleInterface $role): void
     {
         $this->role = $role;
-    }
-
-    /**
-     * @return BaseCompanyInterface
-     */
-    public function getCompany(): ?BaseCompanyInterface
-    {
-        return $this->company;
-    }
-
-    public function setCompany(?BaseCompanyInterface $company): void
-    {
-        $this->company = $company;
     }
 
     public function getCompanies(): Collection

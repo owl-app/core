@@ -15,4 +15,6 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 interface RoleRepositoryInterface extends RepositoryInterface
 {
     public function findWithoutAdminSystem(): array;
+
+    public function findByCannonicalName(string $cannonicalName): RoleInterface;
 }

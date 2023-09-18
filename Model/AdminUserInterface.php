@@ -26,8 +26,6 @@ interface AdminUserInterface extends
     PermissionUserInterface,
     StatusOwnerInterface,
     RoleAwareInterface,
-    CompanyAwareInterface,
-    OwnerableCompanyInterface,
     UploaderInterface,
     ManyOwnerableCompanyInterface
 {
