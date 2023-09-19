@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Context;
 
+use Doctrine\Common\Collections\Collection;
 use Owl\Component\Core\Model\AdminUserInterface;
-use Owl\Component\Core\Model\CompanyInterface;
 
 interface AdminUserContextInterface
 {
     public function getUser(): ?AdminUserInterface;
 
-    public function getAccessCompany(): ?CompanyInterface;
+    public function getAccessCompanies(): Collection;
 
     public function getAccessCompaniesIds(): array;
 
