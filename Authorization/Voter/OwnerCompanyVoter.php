@@ -35,8 +35,9 @@ final class OwnerCompanyVoter extends Voter
 
     protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
-        if(in_array($subject->getCompany()->getId(),  $this->adminUserContext->getAccessCompaniesIds()))
+        if (in_array($subject->getCompany()->getId(), $this->adminUserContext->getAccessCompaniesIds())) {
             return true;
+        }
 
         return false;
     }

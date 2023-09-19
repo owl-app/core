@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Owl\Component\Core\Model;
 
-use Owl\Component\Company\Model\CompanyAwareInterface;
 use Owl\Component\Core\Model\Authorization\ManyOwnerableCompanyInterface;
-use Owl\Component\Core\Model\Authorization\OwnerableCompanyInterface;
 use Owl\Component\File\Model\UploaderInterface;
 use Owl\Component\Status\Model\OwnerInterface as StatusOwnerInterface;
 use Owl\Component\User\Model\PermissionUserInterface;
