@@ -18,4 +18,6 @@ interface AdminUserRepositoryInterface extends RepositoryInterface
     public function findByCompany($companyId): QueryBuilder;
 
     public function findAdminsCompany($companyId): array;
+
+    public function findEnabledWithOwner(?int $userId): QueryBuilder;
 }
